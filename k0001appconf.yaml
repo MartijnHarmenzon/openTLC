@@ -1,0 +1,1497 @@
+---
+automaat:
+  raspberry_pi: False
+simulatie:
+  sumo: False
+fasecycli:
+  fc01:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 200
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc11: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc02:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 300
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc03:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 200
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc09: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc04:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 200
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc03: True
+        fc05: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc05:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 200
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc08:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 300
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc09:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 150
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc03: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc10:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 250
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc09: True
+        fc11: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc11:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 200
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc49:
+    modaliteit: ov
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 0
+        VAG2: 100
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc21:
+    modaliteit: fietser
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 0
+        VAG2: 100
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc31: True
+        fc32: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc24:
+    modaliteit: fietser
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 0
+        VAG2: 100
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc33: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc25:
+    modaliteit: fietser
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 0
+        VAG2: 100
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc35: True
+        fc36: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc27:
+    modaliteit: fietser
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 0
+        VAG2: 100
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc37: True
+        fc97: True
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc31:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc32:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc33:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc35:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc36:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc37:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+  fc97:
+    modaliteit: voetganger
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: False
+        VAG2: False
+        VAG3: False
+        VAG4: False
+    schakelaars:
+      wachtgroen: False
+      meeverlengen: False
+      cyclisch_aanvragen: False
+detectie:
+  d011:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d012:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d021:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d022:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d031:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d032:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d041:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d042:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d051:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d052:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d081:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d082:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d091:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d092:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d101:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d102:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d111:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 1
+  d112:
+    type: lange_lus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 15
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d210:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d211:
+    type: koplus
+    tijden:
+      bezettijd: 25
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d240:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d241:
+    type: koplus
+    tijden:
+      bezettijd: 25
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d242:
+    type: koplus
+    tijden:
+      bezettijd: 0
+      hiaattijd: 60
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d250:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d251:
+    type: koplus
+    tijden:
+      bezettijd: 25
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d270:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d271:
+    type: koplus
+    tijden:
+      bezettijd: 25
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d311:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d312:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d321:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d322:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d331:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d332:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d351:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d352:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d361:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d362:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d371:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d372:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+  d491:
+    type: koplus
+    tijden:
+      bezettijd: 30
+      hiaattijd: 30
+    parameters:
+      aanvraag: 1
+      verleng: 2
+  d971:
+    type: drukknop
+    parameters:
+      aanvraag: 3
+ingangssignalen:
+  is01:
+  is02:
+  is03:
+  is04:
+  is05:
+blokindeling: False
+conflicten:
+  fc01:
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc32:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+  fc02:
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 5
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc32:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc35:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc03:
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc24:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc32:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc33:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+  fc04:
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc24:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc31:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc33:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+  fc05:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc24:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 5
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc33:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc35:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+  fc08:
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 5
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc31:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc36:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+  fc09:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 40
+        ontruimingstijd: 50
+    fc36:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 45
+        ontruimingstijd: 55
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+  fc10:
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc35:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc11:
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 5
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc21:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 45
+        ontruimingstijd: 55
+    fc24:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc31:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 45
+        ontruimingstijd: 55
+    fc33:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+  fc21:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc24:
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc25:
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 35
+        ontruimingstijd: 45
+  fc27:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 35
+        ontruimingstijd: 45
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc31:
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+  fc32:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 60
+        ontruimingstijd: 70
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 40
+        ontruimingstijd: 50
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 60
+        ontruimingstijd: 70
+  fc33:
+    fc03:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc04:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 80
+        ontruimingstijd: 90
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 40
+        ontruimingstijd: 50
+  fc35:
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 5
+        ontruimingstijd: 15
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 5
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 15
+        ontruimingstijd: 25
+  fc36:
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 35
+        ontruimingstijd: 45
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 60
+        ontruimingstijd: 70
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 65
+        ontruimingstijd: 75
+  fc37:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 20
+        ontruimingstijd: 30
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+  fc49:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc02:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 35
+        ontruimingstijd: 45
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc08:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 30
+        ontruimingstijd: 40
+    fc25:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 0
+    fc27:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc36:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc37:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc97:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 55
+        ontruimingstijd: 65
+  fc97:
+    fc01:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 25
+        ontruimingstijd: 35
+    fc05:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc09:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+    fc10:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 50
+        ontruimingstijd: 60
+    fc11:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 10
+        ontruimingstijd: 20
+    fc49:
+      type: normaal
+      tijden:
+        garantie_ontruimingstijd: 0
+        ontruimingstijd: 10
+deelconflicten:
+  fc05:
+    fc11:
+      type: deelconflict_gelijkstart
+      tijden:
+        ontruimingstijd: 50
+      schakelaars:
+        meeaanvraag: False
+  fc08:
+    fc24:
+      type: deelconflict_voorstart
+      tijden:
+        ontruimingstijd: 20
+      schakelaars:
+        meeaanvraag: False
+    fc33:
+      type: deelconflict_voorstart
+      tijden:
+        ontruimingstijd: 20
+      schakelaars:
+        meeaanvraag: False
+  fc11:
+    fc05:
+      type: deelconflict_gelijkstart
+      tijden:
+        ontruimingstijd: 50
+      schakelaars:
+        meeaanvraag: False
+  fc24:
+    fc08:
+      type: deelconflict_voorstart
+      tijden:
+        voorstarttijd: 0
+      schakelaars:
+        meeaanvraag: False
+  fc33:
+    fc08:
+      type: deelconflict_voorstart
+      tijden:
+        voorstarttijd: 0
+      schakelaars:
+        meeaanvraag: False
+langzaam_verkeer:
+  fietserskoppeling:
+  voetgangerskoppeling:
+  rateltikkers:
+    klokperioden:
+  wachttijdvoorspellers:
+openbaar_vervoer:
+hulpdiensten:
+koppelingen:
+file:
+bijzonderheden:
+structuurdoorbreking:
+  algemeen:
+    maximum_wachttijd_motorvoeruigen: 900
+    maximum_wachttijd_fietsers: 900
+    maximum_wachttijd_voetgangers: 900
+klokperioden:

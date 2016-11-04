@@ -1,0 +1,47 @@
+---
+wiringpi:
+  - pin_base: 65
+    i2c_addr: 0x20
+  - pin_base: 81
+    i2c_addr: 0x21
+fasecycli:
+  fc01:
+    rood: 65
+    groen: 66
+    geel: 67
+  fc02:
+    rood: 68
+    groen: 69
+    geel: 70
+  fc03:
+    rood: 71
+    groen: 72
+    geel: 73
+  fc04:
+    rood: 74
+    groen: 75
+    geel: 76
+  fc05:
+    rood: 77
+    groen: 78
+    geel: 79
+  fc08:
+    rood: 84
+    groen: 85
+    geel: 86
+  fc09:
+    rood: 87
+    groen: 88
+    geel: 89
+  fc10:
+    rood: 90
+    groen: 91
+    geel: 92
+  fc11:
+    rood: 93
+    groen: 94
+    geel: 95
+  fc49:
+    rood: 81
+    groen: 82
+    geel: 83
