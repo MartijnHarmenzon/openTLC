@@ -6,32 +6,30 @@ An open source traffic light control program.
 - YAML http://www.yaml.org/start.html
 
 ## Software
-We are using two main software packages:
-1.	We use ‘Anaconda Python 3.5’ as our main Python environment
-https://www.continuum.io/downloads#windows
-2.	We use ‘PyCharm Community edition’ as our main IDE
-https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC
+We use ‘Anaconda Python 3.5’ as our main Python environment
+* https://www.continuum.io/downloads#windows
+We use ‘PyCharm Community edition’ as our main IDE
+* https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC
 
 ## Installation guide
-Two installation options: 
-1.	With the default Python environment (3.5.2) 
-2.	With the Anaconda Python 3.5 environment
+1. With the default Python environment (3.5.2) 
+2. With the Anaconda Python 3.5 environment
 
 ### Option 1 - default Python:
-1.	Install PyCharm
-2.	Open PyCharm
-3.	Open the ‘openTLC’ project
-4.	Make the default Python environment the project interpreter:
+1. Install PyCharm
+2. Open PyCharm
+3. Open the ‘openTLC’ project
+4. Make the default Python environment the project interpreter:
 * file -> settings -> project -> project interpreter
-5.	Update the ‘pip’ package tot he most recent version:
+5. Update the ‘pip’ package tot he most recent version:
 * Double click on ‘pip’ -> specify version (most recent one) -> install package
-6.	Install the ‘PyYAML’ package:
+6. Install the ‘PyYAML’ package:
 * Click on install -> search for ‘PyYAML’ - > install package
 
 ### Option 2 - Anaconda Python 3.5:
-1.	Install Anaconda Python 3.5
-2.	Install PyCharm
-3.	Open PyCharm
-4.	Open the ‘openTLC’ project
-5.	Make the Anaconda Python 3.5 environment the project interpreter:
+1. Install Anaconda Python 3.5
+2. Install PyCharm
+3. Open PyCharm
+4. Open the ‘openTLC’ project
+5. Make the Anaconda Python 3.5 environment the project interpreter:
 * file -> settings -> project -> project interpreter
