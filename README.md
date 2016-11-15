@@ -2,17 +2,14 @@
 An open source traffic light control program.
 
 ## Using:
-- Python 3.5 https://www.python.org/
-- YAML http://www.yaml.org/start.html
+- [Python 3.5](https://www.python.org/)
+- [YAML](http://www.yaml.org/start.html)
 
 ## Software
 We use [Anaconda Python 3.5](https://www.continuum.io/downloads#windows) as our main Python environment and [PyCharm Community edition](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC) as our main IDE.
 
 ## Installation guide
-1. With the default Python environment (3.5.2) 
-2. With the Anaconda Python 3.5 environment
-
-### Option 1 - default Python:
+### Option 1 - using default Python:
 1. Install PyCharm
 2. Open PyCharm
 3. Open the ‘openTLC’ project
@@ -23,7 +20,7 @@ We use [Anaconda Python 3.5](https://www.continuum.io/downloads#windows) as our 
 6. Install the ‘PyYAML’ package:
 * Click on install -> search for ‘PyYAML’ - > install package
 
-### Option 2 - Anaconda Python 3.5:
+### Option 2 - using Anaconda Python 3.5:
 1. Install Anaconda Python 3.5
 2. Install PyCharm
 3. Open PyCharm
