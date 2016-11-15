@@ -17,7 +17,7 @@ We use [Anaconda Python 3.5](https://www.continuum.io/downloads#windows) as our 
 5. Make the Anaconda Python 3.5 environment the project interpreter:
    * file -> settings -> project -> project interpreter
    
-### Option 2 - using default Python:
+### Option 2 - using default Python 3.5.2:
 1. Install Python
 2. Install PyCharm
 3. Open PyCharm
