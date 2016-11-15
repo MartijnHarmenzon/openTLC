@@ -2,7 +2,7 @@
 An open source traffic light control program.
 
 ## Using:
-- [Python 3.5](https://www.python.org/)
+- [Python 3.5.2](https://www.python.org/)
 - [YAML](http://www.yaml.org/start.html)
 
 ## Software
