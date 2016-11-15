@@ -6,10 +6,7 @@ An open source traffic light control program.
 - YAML http://www.yaml.org/start.html
 
 ## Software
-We use ‘Anaconda Python 3.5’ as our main Python environment
-* https://www.continuum.io/downloads#windows
-We use ‘PyCharm Community edition’ as our main IDE
-* https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC
+We use [Anaconda Python 3.5](https://www.continuum.io/downloads#windows) as our main Python environment and [PyCharm Community edition](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC) as our main IDE.
 
 ## Installation guide
 1. With the default Python environment (3.5.2) 
