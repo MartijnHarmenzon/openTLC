@@ -16,9 +16,9 @@ We use [Anaconda Python 3.5](https://www.continuum.io/downloads#windows) as our 
 4. Make the default Python environment the project interpreter:
    * file -> settings -> project -> project interpreter
 5. Update the ‘pip’ package tot he most recent version
-   * Double click on ‘pip’ -> specify version (most recent one) -> install package
+   * double click on ‘pip’ -> specify version (most recent one) -> install package
 6. Install the ‘PyYAML’ package:
-   * Click on install -> search for ‘PyYAML’ - > install package
+   * click on install -> search for ‘PyYAML’ - > install package
 
 ### Option 2 - using Anaconda Python 3.5:
 1. Install Anaconda Python 3.5
