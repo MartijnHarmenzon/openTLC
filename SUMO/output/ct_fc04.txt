@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 19-12-2016 07:17:35 by SUMO gui Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumo-gui.exeConfiguration.xsd">
+
+    <input>
+        <net-file value="SUMO/k0001.net.xml"/>
+        <route-files value="SUMO/k0001.rou.xml"/>
+        <additional-files value="SUMO/k0001.det.xml,SUMO/k0001.poly.xml,SUMO/k0001.addEdge.xml,SUMO/k0001.addLane.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="8873"/>
+    </traci_server>
+
+    <gui_only>
+        <gui-settings-file value="SUMO/k0001.gui.cfg"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<e3Detector>
+   <interval begin="0.00" end="900.00" id="ct_fc04" meanTravelTime="57.55" meanSpeed="1.31" meanHaltsPerVehicle="414.05" vehicleSum="19" meanSpeedWithin="0.88" meanHaltsPerVehicleWithin="293.00" meanDurationWithin="40.25" vehicleSumWithin="1" meanIntervalSpeedWithin="0.88" meanIntervalHaltsPerVehicleWithin="293.00" meanIntervalDurationWithin="40.25"/>
+   <interval begin="900.00" end="1800.00" id="ct_fc04" meanTravelTime="50.12" meanSpeed="1.45" meanHaltsPerVehicle="341.05" vehicleSum="21" meanSpeedWithin="2.07" meanHaltsPerVehicleWithin="62.00" meanDurationWithin="17.21" vehicleSumWithin="1" meanIntervalSpeedWithin="2.07" meanIntervalHaltsPerVehicleWithin="62.00" meanIntervalDurationWithin="17.21"/>
+   <interval begin="1800.00" end="2700.00" id="ct_fc04" meanTravelTime="55.95" meanSpeed="1.28" meanHaltsPerVehicle="395.47" vehicleSum="19" meanSpeedWithin="0.89" meanHaltsPerVehicleWithin="292.00" meanDurationWithin="40.14" vehicleSumWithin="1" meanIntervalSpeedWithin="0.89" meanIntervalHaltsPerVehicleWithin="292.00" meanIntervalDurationWithin="40.14"/>
+   <interval begin="2700.00" end="3600.00" id="ct_fc04" meanTravelTime="63.70" meanSpeed="1.27" meanHaltsPerVehicle="474.35" vehicleSum="20" meanSpeedWithin="2.06" meanHaltsPerVehicleWithin="63.00" meanDurationWithin="17.25" vehicleSumWithin="1" meanIntervalSpeedWithin="2.06" meanIntervalHaltsPerVehicleWithin="63.00" meanIntervalDurationWithin="17.25"/>
+   <interval begin="3600.00" end="4500.00" id="ct_fc04" meanTravelTime="68.18" meanSpeed="0.90" meanHaltsPerVehicle="514.46" vehicleSum="13" meanSpeedWithin="0.39" meanHaltsPerVehicleWithin="958.00" meanDurationWithin="109.47" vehicleSumWithin="4" meanIntervalSpeedWithin="0.39" meanIntervalHaltsPerVehicleWithin="958.00" meanIntervalDurationWithin="109.47"/>
+   <interval begin="4500.00" end="5400.00" id="ct_fc04" meanTravelTime="88.37" meanSpeed="0.72" meanHaltsPerVehicle="706.41" vehicleSum="22" meanSpeedWithin="2.07" meanHaltsPerVehicleWithin="62.00" meanDurationWithin="17.20" vehicleSumWithin="1" meanIntervalSpeedWithin="2.07" meanIntervalHaltsPerVehicleWithin="62.00" meanIntervalDurationWithin="17.20"/>
+   <interval begin="5400.00" end="6300.00" id="ct_fc04" meanTravelTime="82.95" meanSpeed="0.86" meanHaltsPerVehicle="658.25" vehicleSum="16" meanSpeedWithin="0.49" meanHaltsPerVehicleWithin="710.33" meanDurationWithin="86.45" vehicleSumWithin="3" meanIntervalSpeedWithin="0.49" meanIntervalHaltsPerVehicleWithin="710.33" meanIntervalDurationWithin="86.45"/>
+   <interval begin="6300.00" end="7200.00" id="ct_fc04" meanTravelTime="59.58" meanSpeed="1.30" meanHaltsPerVehicle="424.30" vehicleSum="23" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00"/>
+   <interval begin="7200.00" end="8100.00" id="ct_fc04" meanTravelTime="70.42" meanSpeed="1.17" meanHaltsPerVehicle="537.50" vehicleSum="18" meanSpeedWithin="0.48" meanHaltsPerVehicleWithin="735.33" meanDurationWithin="86.49" vehicleSumWithin="3" meanIntervalSpeedWithin="0.48" meanIntervalHaltsPerVehicleWithin="735.33" meanIntervalDurationWithin="86.49"/>
+   <interval begin="8100.00" end="9000.00" id="ct_fc04" meanTravelTime="78.36" meanSpeed="0.87" meanHaltsPerVehicle="609.68" vehicleSum="22" meanSpeedWithin="1.25" meanHaltsPerVehicleWithin="296.00" meanDurationWithin="40.37" vehicleSumWithin="2" meanIntervalSpeedWithin="1.25" meanIntervalHaltsPerVehicleWithin="296.00" meanIntervalDurationWithin="40.37"/>
+   <interval begin="9000.00" end="9338.10" id="ct_fc04" meanTravelTime="61.84" meanSpeed="0.88" meanHaltsPerVehicle="452.50" vehicleSum="2" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00"/>
+</e3Detector>

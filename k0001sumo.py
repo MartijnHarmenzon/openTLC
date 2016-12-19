@@ -88,7 +88,7 @@ if __name__ == "__main__":
     # sumoProcess = subprocess.Popen([sumoBinary, "-c", "data/MAP_K0001.sumo.cfg", "--tripinfo-output",
     #                                 "tripinfo.xml", "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
 
-    sumoProcess = subprocess.Popen([sumoBinary, "-c", "data/MAP_K0001.sumo.cfg", "--remote-port", str(PORT)],
+    sumoProcess = subprocess.Popen([sumoBinary, "-c", "SUMO/k0001.sumocfg", "--remote-port", str(PORT)],
                                    stdout=sys.stdout, stderr=sys.stderr)
     run()
     sumoProcess.wait()

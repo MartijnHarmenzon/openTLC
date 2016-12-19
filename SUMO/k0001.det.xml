@@ -1,0 +1,125 @@
+<additionals>
+    <e3Detector id="ct_fc01" freq="900" file="output/ct_fc01.txt" timeThreshold="1.00" speedThreshold="0.01" x="300.79" y="359.06">
+        <detEntry lane="gneE220_0" pos="3.24"/>
+        <detExit lane="gneE187_0" pos="1.11"/>
+    </e3Detector>
+    <e3Detector id="ct_fc02" freq="900" file="output/ct_fc02.txt" timeThreshold="1.00" speedThreshold="0.01" x="300.57" y="355.64">
+        <detEntry lane="gneE68_0" pos="439.39"/>
+        <detExit lane="gneE220_0" pos="0.89"/>
+    </e3Detector>
+    <e3Detector id="ct_fc03" freq="900" file="output/ct_fc03.txt" timeThreshold="1.00" speedThreshold="0.01" x="300.65" y="352.23">
+        <detEntry lane="gneE269_2" pos="19.97"/>
+        <detExit lane="gneE245_0" pos="0.65"/>
+    </e3Detector>
+    <e3Detector id="ct_fc04" freq="900" file="output/ct_fc04.txt" timeThreshold="1.00" speedThreshold="0.01" x="300.57" y="348.88">
+        <detEntry lane="gneE16.0_0" pos="142.09"/>
+        <detExit lane="gneE176_0" pos="0.36"/>
+    </e3Detector>
+    <e2Detector id="d011" lane="gneE111_0" pos="25.56" length="2.00" freq="100" file="output/d011.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d012" lane="gneE111_0" pos="0.00" length="15.00" freq="100" file="output/d012.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d021" lane="gneE111_1" pos="25.51" length="2.00" freq="100" file="output/d021.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d022" lane="gneE111_1" pos="0.01" length="15.00" freq="100" file="output/d022.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d031" lane="gneE111_2" pos="25.33" length="2.00" freq="100" file="output/d031.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d032" lane="gneE111_2" pos="0.00" length="15.00" freq="100" file="output/d032.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d041" lane="gneE123_0" pos="52.46" length="2.00" freq="100" file="output/d041.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d042" lane="gneE123_0" pos="27.00" length="15.00" freq="100" file="output/d042.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d051" lane="gneE123_1" pos="52.61" length="2.00" freq="100" file="output/d051.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d052" lane="gneE123_1" pos="27.00" length="15.00" freq="100" file="output/d052.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d081" lane="gneE129.48_1" pos="7.61" length="2.00" freq="100" file="output/d081.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d082" lane="gneE129.0_1" pos="25.98" length="20.00" freq="100" file="output/d082.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d091" lane="gneE129.48_2" pos="7.58" length="2.00" freq="100" file="output/d091.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d092" lane="gneE129.0_2" pos="25.93" length="20.00" freq="100" file="output/d092.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d101" lane="gneE113_0" pos="40.50" length="2.00" freq="100" file="output/d101.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d102" lane="gneE113_0" pos="9.89" length="20.00" freq="100" file="output/d102.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d111" lane="gneE113_1" pos="40.50" length="2.00" freq="100" file="output/d111.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d112" lane="gneE113_1" pos="9.92" length="20.00" freq="100" file="output/d112.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d211" lane="gneE186_0" pos="1.89" length="1.00" freq="100" file="output/d211.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d241" lane="gneE218_0" pos="0.77" length="1.00" freq="100" file="output/d241.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d251" lane="gneE242_0" pos="0.70" length="1.00" freq="100" file="output/d251.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d271" lane="gneE175_0" pos="2.72" length="1.00" freq="100" file="output/d271.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d311" lane="gneE203_0" pos="1.33" length="1.00" freq="100" file="output/d311.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d312" lane="gneE211_0" pos="1.05" length="1.00" freq="100" file="output/d312.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d321" lane="gneE206_0" pos="1.38" length="1.00" freq="100" file="output/d321.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d322" lane="gneE208_0" pos="0.46" length="1.00" freq="100" file="output/d322.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d331" lane="gneE222_0" pos="0.99" length="1.00" freq="100" file="output/d331.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d332" lane="gneE225_0" pos="0.82" length="1.00" freq="100" file="output/d332.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d351" lane="gneE255_0" pos="0.75" length="1.00" freq="100" file="output/d351.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d352" lane="gneE253_0" pos="0.46" length="1.00" freq="100" file="output/d352.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d361" lane="gneE258_0" pos="0.21" length="1.00" freq="100" file="output/d361.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d362" lane="gneE250_0" pos="0.53" length="1.00" freq="100" file="output/d362.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d371" lane="gneE158_0" pos="1.51" length="1.00" freq="100" file="output/d371.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e2Detector id="d372" lane="gneE169_0" pos="1.77" length="1.00" freq="100" file="output/d372.txt" cont="0" timeThreshold="0.00" speedThreshold="0.00" jamThreshold="0.00"/>
+    <e3Detector id="pt_fc01" freq="900" file="output/pt_fc01.txt" timeThreshold="1.00" speedThreshold="0.01" x="303.65" y="357.38">
+        <detEntry lane="gneE184_0" pos="144.08"/>
+        <detExit lane="gneE204_0" pos="0.29"/>
+    </e3Detector>
+    <e3Detector id="pt_fc02" freq="900" file="output/pt_fc02.txt" timeThreshold="1.00" speedThreshold="0.01" x="303.65" y="354.13">
+        <detEntry lane="gneE70.0_0" pos="442.92"/>
+        <detExit lane="gneE224_0" pos="0.53"/>
+    </e3Detector>
+    <e3Detector id="pt_fc03" freq="900" file="output/pt_fc03.txt" timeThreshold="1.00" speedThreshold="0.01" x="303.58" y="350.58">
+        <detEntry lane="gneE269_0" pos="26.61"/>
+        <detExit lane="gneE256_0" pos="0.60"/>
+    </e3Detector>
+    <e3Detector id="pt_fc04" freq="900" file="output/pt_fc04.txt" timeThreshold="1.00" speedThreshold="0.01" x="303.37" y="347.25">
+        <detEntry lane="gneE14.0_0" pos="158.04"/>
+        <detExit lane="gneE159_0" pos="0.63"/>
+    </e3Detector>
+    <e3Detector id="tt_fc01" freq="900" file="output/tt_fc01.txt" timeThreshold="1.00" speedThreshold="1.39" x="245.52" y="483.20">
+        <detEntry lane="gneE01_0" pos="50.00"/>
+        <detExit lane="gneE119_0" pos="10.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc02" freq="900" file="output/tt_fc02.txt" timeThreshold="1.00" speedThreshold="1.39" x="253.23" y="479.25">
+        <detEntry lane="gneE01_0" pos="55.00"/>
+        <detExit lane="gneE133.12_1" pos="10.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc03" freq="900" file="output/tt_fc03.txt" timeThreshold="1.00" speedThreshold="1.39" x="259.52" y="472.42">
+        <detEntry lane="gneE01_0" pos="60.00"/>
+        <detExit lane="gneE125_0" pos="10.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc04" freq="900" file="output/tt_fc04.txt" timeThreshold="1.00" speedThreshold="1.39" x="367.81" y="424.51">
+        <detEntry lane="gneE123_0" pos="14.00"/>
+        <detEntry lane="gneE123_1" pos="14.00"/>
+        <detExit lane="gneE135_0" pos="10.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc05" freq="900" file="output/tt_fc05.txt" timeThreshold="1.00" speedThreshold="1.39" x="378.08" y="422.16">
+        <detEntry lane="gneE123_0" pos="19.00"/>
+        <detEntry lane="gneE123_1" pos="19.00"/>
+        <detExit lane="gneE119_0" pos="15.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc06" freq="900" file="output/tt_fc06.txt" timeThreshold="1.00" speedThreshold="1.39" x="384.65" y="431.14">
+        <detEntry lane="gneE123_0" pos="24.00"/>
+        <detEntry lane="gneE123_1" pos="24.00"/>
+        <detExit lane="gneE133.12_1" pos="15.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc07" freq="900" file="output/tt_fc07.txt" timeThreshold="1.00" speedThreshold="1.39" x="436.11" y="372.60">
+        <detEntry lane="-23602047_0" pos="50.00"/>
+        <detEntry lane="-23602047_1" pos="50.00"/>
+        <detExit lane="gneE125_0" pos="15.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc08" freq="900" file="output/tt_fc08.txt" timeThreshold="1.00" speedThreshold="1.39" x="443.88" y="370.48">
+        <detEntry lane="-23602047_0" pos="55.00"/>
+        <detEntry lane="-23602047_1" pos="55.00"/>
+        <detExit lane="gneE135_0" pos="15.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc09" freq="900" file="output/tt_fc09.txt" timeThreshold="1.00" speedThreshold="1.39" x="452.48" y="366.72">
+        <detEntry lane="-23602047_0" pos="60.00"/>
+        <detEntry lane="-23602047_1" pos="60.00"/>
+        <detExit lane="gneE119_0" pos="20.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc10" freq="900" file="output/tt_fc10.txt" timeThreshold="1.00" speedThreshold="1.39" x="354.85" y="297.56">
+        <detEntry lane="gneE09_0" pos="40.00"/>
+        <detEntry lane="gneE09_1" pos="40.00"/>
+        <detExit lane="gneE133.12_1" pos="20.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc11" freq="900" file="output/tt_fc11.txt" timeThreshold="1.00" speedThreshold="1.39" x="364.74" y="301.98">
+        <detEntry lane="gneE09_0" pos="45.00"/>
+        <detEntry lane="gneE09_1" pos="45.00"/>
+        <detExit lane="gneE125_0" pos="20.00"/>
+    </e3Detector>
+    <e3Detector id="tt_fc12" freq="900" file="output/tt_fc12.txt" timeThreshold="1.00" speedThreshold="1.39" x="374.24" y="306.89">
+        <detEntry lane="gneE09_0" pos="50.00"/>
+        <detEntry lane="gneE09_1" pos="50.00"/>
+        <detExit lane="gneE135_0" pos="20.00"/>
+    </e3Detector>
+</additionals>
