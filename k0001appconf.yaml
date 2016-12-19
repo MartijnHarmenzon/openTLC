@@ -2,7 +2,7 @@
 automaat:
   raspberry_pi: False
 simulatie:
-  sumo: False
+  sumo: True
 fasecycli:
   fc01:
     modaliteit: motorvoertuig
@@ -16,14 +16,14 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 80
-        VAG2: 200
+        VAG2: 80
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc11: True
-      meeverlengen: False
+        fc11: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc02:
     modaliteit: motorvoertuig
@@ -37,12 +37,12 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 80
-        VAG2: 300
+        VAG2: 200
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
-      meeverlengen: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc03:
     modaliteit: motorvoertuig
@@ -56,14 +56,14 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 80
-        VAG2: 200
+        VAG2: 80
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
         fc09: False
-      meeverlengen: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc04:
     modaliteit: motorvoertuig
@@ -77,15 +77,15 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 80
-        VAG2: 200
+        VAG2: 80
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc03: True
-        fc05: True
-      meeverlengen: False
+        fc03: False
+        fc05: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc05:
     modaliteit: motorvoertuig
@@ -99,12 +99,12 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 80
-        VAG2: 200
+        VAG2: 80
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
-      meeverlengen: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc08:
     modaliteit: motorvoertuig
@@ -123,9 +123,52 @@ fasecycli:
         VAG4: 0
     schakelaars:
       wachtgroen: False
-      meeverlengen: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc09:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 300
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc03: False
+      meeverlengen: True
+      cyclisch_aanvragen: False
+  fc10:
+    modaliteit: motorvoertuig
+    tijden:
+      garantie:
+        rood: 20
+        groen: 40
+        geel: 30
+      basis:
+        groen: 60
+        geel: 30
+      maximum:
+        VAG1: 80
+        VAG2: 300
+        VAG3: 0
+        VAG4: 0
+    schakelaars:
+      wachtgroen: False
+      meeaanvragen:
+        fc09: False
+        fc11: False
+      meeverlengen: True
+      cyclisch_aanvragen: False
+  fc11:
     modaliteit: motorvoertuig
     tijden:
       garantie:
@@ -142,50 +185,7 @@ fasecycli:
         VAG4: 0
     schakelaars:
       wachtgroen: False
-      meeaanvragen:
-        fc03: False
-      meeverlengen: False
-      cyclisch_aanvragen: False
-  fc10:
-    modaliteit: motorvoertuig
-    tijden:
-      garantie:
-        rood: 20
-        groen: 40
-        geel: 30
-      basis:
-        groen: 60
-        geel: 30
-      maximum:
-        VAG1: 80
-        VAG2: 250
-        VAG3: 0
-        VAG4: 0
-    schakelaars:
-      wachtgroen: False
-      meeaanvragen:
-        fc09: True
-        fc11: True
-      meeverlengen: False
-      cyclisch_aanvragen: False
-  fc11:
-    modaliteit: motorvoertuig
-    tijden:
-      garantie:
-        rood: 20
-        groen: 40
-        geel: 30
-      basis:
-        groen: 60
-        geel: 30
-      maximum:
-        VAG1: 80
-        VAG2: 200
-        VAG3: 0
-        VAG4: 0
-    schakelaars:
-      wachtgroen: False
-      meeverlengen: False
+      meeverlengen: True
       cyclisch_aanvragen: False
   fc49:
     modaliteit: ov
@@ -199,7 +199,7 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 0
-        VAG2: 100
+        VAG2: 0
         VAG3: 0
         VAG4: 0
     schakelaars:
@@ -218,14 +218,14 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 0
-        VAG2: 100
+        VAG2: 0
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc31: True
-        fc32: True
+        fc31: False
+        fc32: False
       meeverlengen: False
       cyclisch_aanvragen: False
   fc24:
@@ -236,17 +236,17 @@ fasecycli:
         groen: 40
         geel: 30
       basis:
-        groen: 60
+        groen: 80
         geel: 30
       maximum:
         VAG1: 0
-        VAG2: 100
+        VAG2: 150
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc33: True
+        fc33: False
       meeverlengen: False
       cyclisch_aanvragen: False
   fc25:
@@ -261,14 +261,14 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 0
-        VAG2: 100
+        VAG2: 0
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc35: True
-        fc36: True
+        fc35: False
+        fc36: False
       meeverlengen: False
       cyclisch_aanvragen: False
   fc27:
@@ -283,14 +283,14 @@ fasecycli:
         geel: 30
       maximum:
         VAG1: 0
-        VAG2: 100
+        VAG2: 0
         VAG3: 0
         VAG4: 0
     schakelaars:
       wachtgroen: False
       meeaanvragen:
-        fc37: True
-        fc97: True
+        fc37: False
+        fc97: False
       meeverlengen: False
       cyclisch_aanvragen: False
   fc31:
@@ -415,7 +415,7 @@ fasecycli:
         groen: 40
         geel: 30
       basis:
-        groen: 60
+        groen: 80
         geel: 30
       maximum:
         VAG1: False
@@ -423,7 +423,9 @@ fasecycli:
         VAG3: False
         VAG4: False
     schakelaars:
-      wachtgroen: False
+      wachtgroen: True
+      meeaanvragen:
+        fc37: False
       meeverlengen: False
       cyclisch_aanvragen: False
 detectie:

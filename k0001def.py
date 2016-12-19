@@ -1,7 +1,6 @@
 # import default libraries
 import yaml
 
-
 # define dictionaries
 outputs = {}
 inputs = {}
@@ -13,7 +12,6 @@ timers = {}
 countData = {}
 detector_status = {}
 extend = {}
-
 
 # define settings
 with open('k0001appconf.yaml', 'r') as f:

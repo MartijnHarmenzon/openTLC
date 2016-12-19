@@ -1,7 +1,7 @@
+#
 import operator, random
 
-
-# import defines MAPtm
+#
 from k0001def import appConfig, outputs, inputs, demands, conflicts, sequence, wachtgroen, timers, countData, detector_status, extend, BIT1, BIT2, BIT3, BIT4
 
 if appConfig['automaat']['raspberry_pi']:
@@ -10,6 +10,7 @@ if appConfig['automaat']['raspberry_pi']:
 if appConfig['simulatie']['sumo']:
     from k0001def import sumoConfig
 
+#
 def initialise():
     for fc in appConfig['fasecycli']:
         outputs[fc] = {'WR': True, 
@@ -70,7 +71,7 @@ def initialise():
     for i in appConfig['ingangssignalen']:
         inputs[i] = False
         
-# define functions
+#
 def detectietijden(d, detector_status, now):
     # bezettijd
     try:
@@ -94,14 +95,25 @@ def detectietijden(d, detector_status, now):
     except:
         pass
 
-
+#
 def aanvragen(fc, d, detector_status, now):
-    try:       
-        bezettijd = appConfig['detectie'][d]['tijden']['bezettijd']
+    try:
         aanvraagfunctie = appConfig['detectie'][d]['parameters']['aanvraag']
-        bezettijdTimer = timers[d]['bezettijd']
+        type = appConfig['detectie'][d]['type']
+        bool = False
 
-        if detector_status and now - bezettijdTimer >= bezettijd:
+        if not type == 'drukknop':
+            bezettijd = appConfig['detectie'][d]['tijden']['bezettijd']
+            bezettijdTimer = timers[d]['bezettijd']
+            if detector_status and now - bezettijdTimer >= bezettijd:
+                bool = True
+            else:
+                bool = False
+        else:
+            if detector_status:
+                bool = True
+
+        if bool:
             if aanvraagfunctie == 1:
                 if outputs[fc]['WR'] and timers[fc]['R'] > 0 and now - timers[fc]['R'] >= timers[fc]['garantie']['rood']:
                     demands[fc] = True
@@ -117,7 +129,7 @@ def aanvragen(fc, d, detector_status, now):
     except:
         pass
 
-
+#
 def verlengen(fc, d, detector_status, now):
     try:
         hiaattijd = appConfig['detectie'][d]['tijden']['hiaattijd']
@@ -136,7 +148,7 @@ def verlengen(fc, d, detector_status, now):
     except:
         pass
 
-
+#
 def set_wachtgroen():
     for fc in appConfig['fasecycli']:
         try:
@@ -145,7 +157,7 @@ def set_wachtgroen():
         except:
             pass
 
-
+#
 def reset():
     for fc in appConfig['fasecycli']:
         demands[fc] = False
@@ -168,6 +180,7 @@ def reset():
 
     for fc1 in appConfig['conflicten']:
         for fc2 in appConfig['conflicten'][fc1]:
+            # print(fc1, fc2, conflicts[fc1])
             conflicts[fc1][fc2] = False
 
     # for d in appConfig['detectie']:
@@ -176,12 +189,13 @@ def reset():
     # for i in appConfig['ingangssignalen']:
         # inputs[i] = False
 
+#
 def set_cyclische_aanvragen():
     for fc in appConfig['fasecycli']:
         if appConfig['fasecycli'][fc]['schakelaars']['cyclisch_aanvragen']:
             demands[fc] = True
 
-
+#
 def set_conflicts():
     for fc1 in appConfig['conflicten']:
         for fc2 in appConfig['conflicten'][fc1]:
@@ -189,7 +203,7 @@ def set_conflicts():
                 if not outputs[fc2]['WR']:
                     conflicts[fc1][fc2] = True
 
-
+#
 def conflictStatus(fc1):
     state = False
     for fc2 in appConfig['conflicten'][fc1]:
@@ -203,7 +217,7 @@ def conflictStatus(fc1):
                 break
     return state
 
-
+#
 def conflictDemand(fc1):
     state = False
     for fc2 in appConfig['conflicten'][fc1]:
@@ -212,7 +226,7 @@ def conflictDemand(fc1):
             break
     return state
 
-
+#
 def conflictDemandList(fc1):
     list = []
 
@@ -221,7 +235,7 @@ def conflictDemandList(fc1):
             list.append(fc2)
     return list
 
-
+#
 def conflictGreen(list):
     state = False
     for fc1 in list:
@@ -231,7 +245,7 @@ def conflictGreen(list):
                 break
     return state
 
-
+#
 def nonConflictsMVG(fc1):
     state = False
 
@@ -253,7 +267,7 @@ def nonConflictsMVG(fc1):
 
     return state
 
-
+#
 def nonConflicts(fc1):
     list = []
     for fc in appConfig['fasecycli']:
@@ -266,7 +280,7 @@ def nonConflicts(fc1):
 
     return list
 
-
+#
 def nonGreen(fc1):
     state = False
 
@@ -283,12 +297,14 @@ def nonGreen(fc1):
 
     return state
 
-
+#
 def meeverlengen(fc1):
     state = True
 
     if outputs[fc1]['MVG']:
         if conflictDemand(fc1) and not conflictGreen(conflictDemandList(fc1)):
+            state = False
+        if not appConfig['fasecycli'][fc1]['schakelaars']['meeverlengen']:
             state = False
 
     if nonConflictsMVG(fc1):
@@ -299,7 +315,7 @@ def meeverlengen(fc1):
 
     return state
 
-
+#
 def set_meeaanvragen():
     for fc1 in appConfig['fasecycli']:
         if 'meeaanvragen' in appConfig['fasecycli'][fc1]['schakelaars']:
@@ -307,8 +323,8 @@ def set_meeaanvragen():
                 if appConfig['fasecycli'][fc1]['schakelaars']['meeaanvragen'][fc2] and outputs[fc2]['RVG']:
                     demands[fc1] = True
 
-
-def set_sequence():
+#
+def set_sequence(now):
     key_max_sequence = max(sequence.keys(), key=(lambda key: sequence[key]))
     value_max_sequence = sequence[key_max_sequence]
 
@@ -356,22 +372,24 @@ def set_sequence():
 
                 value_max_sequence += 1
 
-    # for fc1 in appConfig['fasecycli']:
-    #     if sequence[fc1] == 1:
-    #         list = nonConflicts(fc1)
-    #
-    #         for fc2 in list:
-    #             list2 = []
-    #             for fc3 in conflicts[fc2]:
-    #                 list2.append(fc3)
-    #
-    #         for fc4 in list:
-    #             if sequence[fc4] > 1 and demands[fc4] and not conflictGreen(list2):
-    #                 print(fc1, fc4, sequence[fc4])
-    #                 sequence[fc4] = 1
+    for fc1 in appConfig['fasecycli']:
+        bool = False
 
+        if timers[fc1]['VG'] > 0 and now - timers[fc1]['VG'] < timers[fc1]['garantie']['groen']:
+            list = nonConflicts(fc1)
 
+            for fc2 in list:
+                list2 = []
+                for fc3 in conflicts[fc2]:
+                    list2.append(fc3)
+                    if now - timers[fc3]['delay'] > 900:
+                        bool = True
 
+            for fc4 in list:
+                if sequence[fc4] >= 1 and appConfig['fasecycli'][fc4]['modaliteit'] == 'motorvoertuig' and not bool: # and not conflictGreen(list2)
+                    sequence[fc4] = 1
+
+#
 def setDelay(now):
     for fc in appConfig['fasecycli']:
         if outputs[fc]['WR'] or outputs[fc]['RVG']:
@@ -380,7 +398,7 @@ def setDelay(now):
         else:
             timers[fc]['delay'] = 0
 
-
+#
 def setCountData():
     countData['fc01'] = random.randrange(0, 101, 2);
     countData['fc02'] = random.randrange(750, 1001, 2);
@@ -391,4 +409,3 @@ def setCountData():
     countData['fc09'] = random.randrange(200, 301, 2);
     countData['fc10'] = random.randrange(400, 501, 2);
     countData['fc11'] = random.randrange(0, 101, 2);
- 

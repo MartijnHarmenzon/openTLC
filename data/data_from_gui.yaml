@@ -1,4 +1,4 @@
-d: {d011: false, d012: true, d021: false, d022: false, d031: false, d032: false, d041: false,
-  d042: false, d051: false, d052: false, d081: false, d082: false, d091: false, d092: false,
-  d101: false, d102: false, d111: false, d112: false}
+d: {d011: true, d012: false, d021: true, d022: false, d031: true, d032: false, d041: true,
+  d042: false, d051: true, d052: false, d081: true, d082: false, d091: true, d092: false,
+  d101: true, d102: false, d111: true, d112: false}
 is: {is01: false, is02: false, is03: false, is04: true, is05: false}

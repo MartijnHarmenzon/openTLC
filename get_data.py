@@ -8,7 +8,7 @@ with open('k0001appconf.yaml', 'r') as f:
 while True:
     try:
         if appConfig['automaat']['raspberry_pi']:
-            data = requests.get('http://192.168.8.101/data/data_from_gui.json')
+            data = requests.get('http://192.168.1.36/data/data_from_gui.json')
         else:
             data = requests.get('http://localhost/MAP_K0001/data/data_from_gui.json')
 
