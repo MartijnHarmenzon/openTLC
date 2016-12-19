@@ -6,9 +6,13 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/polyconvertConfiguration.xsd">
 
     <input>
+        <net-file value="k0001.net.xml"/>
+        <osm-files value="k0001.osm"/>
+        <type-file value="k0001.typemap.xml"/>
     </input>
 
     <output>
+        <output-file value="k0001.poly.xml"/>
     </output>
 
     <processing>
