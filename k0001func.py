@@ -1,8 +1,8 @@
 #
-import operator, random
-
-#
-from k0001def import appConfig, outputs, inputs, demands, conflicts, sequence, wachtgroen, timers, countData, detector_status, extend, BIT1, BIT2, BIT3, BIT4
+import operator
+import random
+from k0001def import appConfig, outputs, inputs, demands, conflicts, sequence, wachtgroen, timers, countData, \
+    detector_status, extend, BIT1, BIT2, BIT3, BIT4
 
 if appConfig['automaat']['raspberry_pi']:
     from k0001def import rpiConfig
@@ -10,8 +10,9 @@ if appConfig['automaat']['raspberry_pi']:
 if appConfig['simulatie']['sumo']:
     from k0001def import sumoConfig
 
+
 #
-def initialise():
+def iniatialise():
     for fc in appConfig['fasecycli']:
         outputs[fc] = {'WR': True, 
                        'RVG': False, 
@@ -70,7 +71,8 @@ def initialise():
 
     for i in appConfig['ingangssignalen']:
         inputs[i] = False
-        
+
+
 #
 def detectietijden(d, detector_status, now):
     # bezettijd
@@ -94,6 +96,7 @@ def detectietijden(d, detector_status, now):
                 timers[d]['hiaattijd'] = now
     except:
         pass
+
 
 #
 def aanvragen(fc, d, detector_status, now):
@@ -129,6 +132,7 @@ def aanvragen(fc, d, detector_status, now):
     except:
         pass
 
+
 #
 def verlengen(fc, d, detector_status, now):
     try:
@@ -148,6 +152,7 @@ def verlengen(fc, d, detector_status, now):
     except:
         pass
 
+
 #
 def set_wachtgroen():
     for fc in appConfig['fasecycli']:
@@ -156,6 +161,7 @@ def set_wachtgroen():
                 wachtgroen[fc] = True
         except:
             pass
+
 
 #
 def reset():
@@ -189,11 +195,13 @@ def reset():
     # for i in appConfig['ingangssignalen']:
         # inputs[i] = False
 
+
 #
 def set_cyclische_aanvragen():
     for fc in appConfig['fasecycli']:
         if appConfig['fasecycli'][fc]['schakelaars']['cyclisch_aanvragen']:
             demands[fc] = True
+
 
 #
 def set_conflicts():
@@ -202,6 +210,7 @@ def set_conflicts():
             if outputs[fc1]['WR'] or outputs[fc1]['RVG']:
                 if not outputs[fc2]['WR']:
                     conflicts[fc1][fc2] = True
+
 
 #
 def conflictStatus(fc1):
@@ -217,6 +226,7 @@ def conflictStatus(fc1):
                 break
     return state
 
+
 #
 def conflictDemand(fc1):
     state = False
@@ -225,6 +235,7 @@ def conflictDemand(fc1):
             state = True
             break
     return state
+
 
 #
 def conflictDemandList(fc1):
@@ -235,6 +246,7 @@ def conflictDemandList(fc1):
             list.append(fc2)
     return list
 
+
 #
 def conflictGreen(list):
     state = False
@@ -244,6 +256,7 @@ def conflictGreen(list):
                 state = True
                 break
     return state
+
 
 #
 def nonConflictsMVG(fc1):
@@ -267,6 +280,7 @@ def nonConflictsMVG(fc1):
 
     return state
 
+
 #
 def nonConflicts(fc1):
     list = []
@@ -279,6 +293,7 @@ def nonConflicts(fc1):
         list.remove(fc)
 
     return list
+
 
 #
 def nonGreen(fc1):
@@ -296,6 +311,7 @@ def nonGreen(fc1):
             break
 
     return state
+
 
 #
 def meeverlengen(fc1):
@@ -315,6 +331,7 @@ def meeverlengen(fc1):
 
     return state
 
+
 #
 def set_meeaanvragen():
     for fc1 in appConfig['fasecycli']:
@@ -322,6 +339,7 @@ def set_meeaanvragen():
             for fc2 in appConfig['fasecycli'][fc1]['schakelaars']['meeaanvragen']:
                 if appConfig['fasecycli'][fc1]['schakelaars']['meeaanvragen'][fc2] and outputs[fc2]['RVG']:
                     demands[fc1] = True
+
 
 #
 def set_sequence(now):
@@ -334,7 +352,7 @@ def set_sequence(now):
     #            sequence[fc] -= 1
 
     sorted_sequence = sorted(sequence.items(), key=operator.itemgetter(1))
-    i = 0
+
     for i in range(len(sorted_sequence) - 1):
         value = sorted_sequence[i + 1][1] - sorted_sequence[i][1]
 
@@ -389,6 +407,7 @@ def set_sequence(now):
                 if sequence[fc4] >= 1 and appConfig['fasecycli'][fc4]['modaliteit'] == 'motorvoertuig' and not bool: # and not conflictGreen(list2)
                     sequence[fc4] = 1
 
+
 #
 def setDelay(now):
     for fc in appConfig['fasecycli']:
@@ -398,14 +417,15 @@ def setDelay(now):
         else:
             timers[fc]['delay'] = 0
 
+
 #
 def setCountData():
-    countData['fc01'] = random.randrange(0, 101, 2);
-    countData['fc02'] = random.randrange(750, 1001, 2);
-    countData['fc03'] = random.randrange(0, 101, 2);
-    countData['fc04'] = random.randrange(0, 101, 2);
-    countData['fc05'] = random.randrange(0, 101, 2);
-    countData['fc08'] = random.randrange(750, 1001, 2);
-    countData['fc09'] = random.randrange(200, 301, 2);
-    countData['fc10'] = random.randrange(400, 501, 2);
-    countData['fc11'] = random.randrange(0, 101, 2);
+    countData['fc01'] = random.randrange(0, 101, 2)
+    countData['fc02'] = random.randrange(750, 1001, 2)
+    countData['fc03'] = random.randrange(0, 101, 2)
+    countData['fc04'] = random.randrange(0, 101, 2)
+    countData['fc05'] = random.randrange(0, 101, 2)
+    countData['fc08'] = random.randrange(750, 1001, 2)
+    countData['fc09'] = random.randrange(200, 301, 2)
+    countData['fc10'] = random.randrange(400, 501, 2)
+    countData['fc11'] = random.randrange(0, 101, 2)
