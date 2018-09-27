@@ -1,4 +1,4 @@
-#
+# import libraries
 import operator
 import random
 from k0001def import appConfig, outputs, inputs, demands, conflicts, sequence, wachtgroen, timers, countData, \
@@ -12,7 +12,7 @@ if appConfig['simulatie']['sumo']:
 
 
 #
-def iniatialise():
+def initialise():
     for fc in appConfig['fasecycli']:
         outputs[fc] = {'WR': True, 
                        'RVG': False, 
