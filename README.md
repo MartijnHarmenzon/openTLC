@@ -1,6 +1,9 @@
 # openTLC
 An open source traffic light control program.
 
+## Background
+MAPtm has started to develop a new generation of traffic light control programs: the so called openTLC programs. The concept is to optimise traffic conditions by using traffic policies and various data sources. The openTLC will be openly developed by a community of road authorities, traffic professionals and programming enthusiasts. Key words to describe an openTLC program are: open, community, uniform, transparent, safety, self-learning, modular, flexible and object-oriented programming (OOP).
+
 ## Using:
 - [Python 3.5.2](https://www.python.org/)
 - [YAML](http://www.yaml.org/start.html)
