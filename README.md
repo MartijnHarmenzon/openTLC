@@ -16,7 +16,7 @@ various configuration files and [JSON](http://www.json.org/) for the APIs.
 4. Open the ‘openTLC’ project
 5. Make the default Python environment the project interpreter:
    * file -> settings -> project -> project interpreter
-6. Update the ‘pip’ package tot he most recent version
+6. Update the ‘pip’ package to the most recent version
    * double click on ‘pip’ -> specify version (most recent one) -> install package
 7. Install the ‘PyYAML’ package:
    * click on install -> search for ‘PyYAML’ - > install package
