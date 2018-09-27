@@ -3,7 +3,7 @@ import wiringpi
 import yaml
 import json
 from k0001def import inputs, outputs, demands, sequence, timers, appConfig, rpiConfig
-from k0001func import reset
+from k0001func import set_defaults
 
 
 #
@@ -130,7 +130,7 @@ def set_state():
 #
 def finally_func():
     #
-    reset()
+    set_defaults()
 
     #
     for fc in appConfig['fasecycli']:

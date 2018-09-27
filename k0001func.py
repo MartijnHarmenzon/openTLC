@@ -99,7 +99,7 @@ def detectietijden(d, detector_status, now):
 
 
 #
-def aanvragen(fc, d, detector_status, now):
+def request_green(fc, d, detector_status, now):
     try:
         aanvraagfunctie = appConfig['detectie'][d]['parameters']['aanvraag']
         type = appConfig['detectie'][d]['type']
@@ -134,7 +134,7 @@ def aanvragen(fc, d, detector_status, now):
 
 
 #
-def verlengen(fc, d, detector_status, now):
+def extend_green(fc, d, detector_status, now):
     try:
         hiaattijd = appConfig['detectie'][d]['tijden']['hiaattijd']
         verlengfunctie = appConfig['detectie'][d]['parameters']['verleng']
@@ -154,7 +154,7 @@ def verlengen(fc, d, detector_status, now):
 
 
 #
-def set_wachtgroen():
+def set_remain_green():
     for fc in appConfig['fasecycli']:
         try:
             if appConfig['fasecycli'][fc]['schakelaars']['wachtgroen'] and not conflict_status(fc):
@@ -164,7 +164,7 @@ def set_wachtgroen():
 
 
 #
-def reset():
+def set_defaults():
     for fc in appConfig['fasecycli']:
         demands[fc] = False
         # conflicts[fc] = {}
@@ -204,7 +204,7 @@ def set_cyclische_aanvragen():
 
 
 #
-def set_conflicts():
+def conflict_manager():
     for fc1 in appConfig['conflicten']:
         for fc2 in appConfig['conflicten'][fc1]:
             if outputs[fc1]['WR'] or outputs[fc1]['RVG']:
@@ -342,7 +342,7 @@ def set_meeaanvragen():
 
 
 #
-def set_sequence(now):
+def sequence_evaluator(now):
     key_max_sequence = max(sequence.keys(), key=(lambda key: sequence[key]))
     value_max_sequence = sequence[key_max_sequence]
 
@@ -409,7 +409,7 @@ def set_sequence(now):
 
 
 #
-def set_delay(now):
+def delay_manager(now):
     for fc in appConfig['fasecycli']:
         if outputs[fc]['WR'] or outputs[fc]['RVG']:
             if demands[fc] and timers[fc]['delay'] == 0:

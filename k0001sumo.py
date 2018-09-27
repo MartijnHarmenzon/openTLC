@@ -5,7 +5,7 @@ import traci
 
 # import libraries openTLC
 from k0001func import initialise
-from k0001app import openTLC
+from k0001app import open_tlc
 from k0001sumofunc import set_sumo_inputs, set_state
 
 # import libraries other
@@ -41,7 +41,7 @@ def run():
 
     #
     step = 0
-    amberState = False
+    # amber_state = False
 
     #
     initialise()
@@ -52,14 +52,15 @@ def run():
         traci.simulationStep()
 
         #
-        if step % 5 == 0:
-            amberState ^= True
+        # if step % 5 == 0:
+        #     amber_state ^= True
 
         #
         set_sumo_inputs()
 
         #
-        openTLC(step, amberState)
+        open_tlc(step)
+        # open_tlc(step, amber_state)
 
         #
         set_state()

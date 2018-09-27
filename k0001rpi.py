@@ -4,7 +4,7 @@
 # import libraries
 import time
 from k0001func import initialise
-from k0001app import openTLC
+from k0001app import open_tlc
 from k0001rpifunc import start_func, set_gui_inputs, set_state, finally_func
 
 
@@ -15,7 +15,7 @@ def run():
 
     #
     step = 0
-    amberState = False
+    # amber_state = False
 
     #
     initialise()
@@ -23,14 +23,15 @@ def run():
     #
     while True:
         #
-        if step % 5 == 0:
-            amberState ^= True
+        # if step % 5 == 0:
+        #     amber_state ^= True
 
         #
         set_gui_inputs()
 
         #
-        openTLC(step, amberState)
+        open_tlc(step)
+        # open_tlc(step, amber_state)
 
         #
         set_state()
