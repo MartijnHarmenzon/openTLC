@@ -1,8 +1,21 @@
 # import libraries SUMO/TraCI
 from __future__ import absolute_import
 from __future__ import print_function
+import traci
 
-import optparse, os, subprocess, sys, time, random
+# import libraries openTLC
+from k0001func import initialise
+from k0001app import openTLC
+from k0001sumofunc import setSUMOInputs, setState
+
+# import libraries other
+import optparse
+import os
+import subprocess
+import sys
+import time
+import random
+
 
 # we need to import python modules from the $SUMO_HOME/tools directory
 try:
@@ -13,19 +26,16 @@ try:
     from sumolib import checkBinary
 except ImportError:
     sys.exit(
-        "please declare environment variable 'SUMO_HOME' as the root directory of your sumo installation (it should contain folders 'bin', 'tools' and 'docs')")
+        """please declare environment variable 'SUMO_HOME' as the root directory of your sumo installation 
+           (it should contain folders 'bin', 'tools' and 'docs')"""
+    )
 
-import traci
-# the port used for communicating with your sumo instance
-PORT = 8873
-
-#
-from k0001func import initialise
-from k0001app import openTLC
-from k0001sumofunc import setSUMOInputs, setState
 
 #
 def run():
+    # the port used for communicating with your sumo instance
+    PORT = 8873
+
     #
     traci.init(PORT)
 
@@ -61,6 +71,7 @@ def run():
     traci.close()
     sys.stdout.flush()
 
+
 #
 def get_options():
     optParser = optparse.OptionParser()
@@ -68,6 +79,7 @@ def get_options():
                          default=False, help="run the commandline version of sumo")
     options, args = optParser.parse_args()
     return options
+
 
 # this is the main entry point of this script
 if __name__ == "__main__":
