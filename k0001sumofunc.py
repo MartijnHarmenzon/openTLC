@@ -1,11 +1,12 @@
-#
+# import libraries SUMO/TraCI
 import traci
 
-#
+# import libraries openTLC
 from k0001def import inputs, outputs, appConfig, sumoConfig
 
+
 #
-def setSUMOInputs():
+def set_sumo_inputs():
     for d in ['d011', 'd012', 'd021', 'd022', 'd031', 'd032', 'd041', 'd042', 'd051', 'd052', 'd081',
               'd082', 'd091', 'd092', 'd101', 'd102', 'd111', 'd112', 'd211', 'd241', 'd251', 'd271',
               'd311', 'd312', 'd321', 'd322', 'd331', 'd332', 'd351', 'd352', 'd361', 'd362', 'd371', 'd372']:
@@ -17,8 +18,9 @@ def setSUMOInputs():
         except:
             pass
 
+
 #
-def setState():
+def set_state():
     #
     state_old = list(traci.trafficlights.getRedYellowGreenState("K0001"))
 

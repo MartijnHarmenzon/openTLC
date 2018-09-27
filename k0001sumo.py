@@ -6,7 +6,7 @@ import traci
 # import libraries openTLC
 from k0001func import initialise
 from k0001app import openTLC
-from k0001sumofunc import setSUMOInputs, setState
+from k0001sumofunc import set_sumo_inputs, set_state
 
 # import libraries other
 import optparse
@@ -56,13 +56,13 @@ def run():
             amberState ^= True
 
         #
-        setSUMOInputs()
+        set_sumo_inputs()
 
         #
         openTLC(step, amberState)
 
         #
-        setState()
+        set_state()
 
         #
         step += 1
