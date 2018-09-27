@@ -1,10 +1,12 @@
-#
-import time
+#! python3
 
-#
+
+# import libraries
+import time
 from k0001func import initialise
 from k0001app import openTLC
 from k0001rpifunc import startFunc, setGuiInputs, setState, finallyFunc
+
 
 #
 def run():
@@ -39,12 +41,10 @@ def run():
         #
         step += 1
 
-#
-try:
-    run()
-finally:
-    #
-    finallyFunc()
 
-    #
-    print('TLC stopped...')
+if __name__ == '__main__':
+    try:
+        run()
+    finally:
+        finallyFunc()
+        print('TLC stopped...')
