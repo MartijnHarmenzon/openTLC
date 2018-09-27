@@ -1,11 +1,11 @@
 # import default libraries
 import time
 
-from k0001def import appConfig, outputs, inputs, demands, sequence, wachtgroen, timers, countData, \
-    extend, BIT1, BIT2, BIT3, BIT4
+from k0001def import appConfig, outputs, inputs, requests, sequence, wachtgroen, timers, countData, extend, \
+    extend_vag1, extend_vag2, extend_vag3, extend_vag4
 
-from k0001func import initialise, set_defaults, conflict_manager, set_remain_green, detectietijden, request_green, \
-    sequence_evaluator, delay_manager, extend_green, conflict_status, meeverlengen
+from k0001func import set_defaults, conflict_manager, set_remain_green, set_demand_timers, request_green, \
+    conflictsequence_evaluator, delay_manager, extend_green, conflict_status, meeverlengen
 
 # if appConfig['automaat']['raspberry_pi']:
 #     from k0001def import rpiConfig
@@ -50,7 +50,7 @@ def open_tlc(step):
                      'd321', 'd322', 'd331', 'd332', 'd351', 'd352', 'd361', 'd362', 'd371', 'd372')
 
         for detector in detectors:
-            detectietijden(detector, inputs[detector], now)
+            set_demand_timers(detector, inputs[detector], now)
 
         request_green('fc01', 'd011', inputs['d011'], now)
         request_green('fc01', 'd012', inputs['d012'], now)
@@ -160,7 +160,7 @@ def open_tlc(step):
                 if timers[signal_group]['VG'] > 0:
                     timers[signal_group]['VG'] = 0
 
-                if not extend[signal_group] & BIT1 or timers[signal_group]['VAG1'] > 0 and now - timers[signal_group]['VAG1'] >= \
+                if not extend[signal_group] & extend_vag1 or timers[signal_group]['VAG1'] > 0 and now - timers[signal_group]['VAG1'] >= \
                         timers[signal_group]['maximum']['VAG1']:
                     outputs[signal_group]['VAG1'] = False
                     outputs[signal_group]['VAG2'] = True
@@ -169,7 +169,7 @@ def open_tlc(step):
                 if timers[signal_group]['VAG1'] > 0:
                     timers[signal_group]['VAG1'] = 0
 
-                if not extend[signal_group] & BIT2 or timers[signal_group]['VAG2'] > 0 and now - timers[signal_group]['VAG2'] >= \
+                if not extend[signal_group] & extend_vag2 or timers[signal_group]['VAG2'] > 0 and now - timers[signal_group]['VAG2'] >= \
                         timers[signal_group]['maximum']['VAG2']:
                     outputs[signal_group]['VAG2'] = False
                     outputs[signal_group]['WG'] = True
@@ -186,7 +186,7 @@ def open_tlc(step):
                 if timers[signal_group]['VAG3'] == 0:
                     timers[signal_group]['VAG3'] = now
 
-                if not extend[signal_group] & BIT3 or timers[signal_group]['VAG3'] > 0 and now - timers[signal_group]['VAG3'] >= \
+                if not extend[signal_group] & extend_vag3 or timers[signal_group]['VAG3'] > 0 and now - timers[signal_group]['VAG3'] >= \
                         timers[signal_group]['maximum']['VAG3']:
                     outputs[signal_group]['VAG3'] = False
                     outputs[signal_group]['MVG'] = True
@@ -203,7 +203,7 @@ def open_tlc(step):
                 if timers[signal_group]['VAG4'] == 0:
                     timers[signal_group]['VAG4'] = now
 
-                if not extend[signal_group] & BIT4 or timers[signal_group]['VAG4'] > 0 and now - timers[signal_group]['VAG4'] >= \
+                if not extend[signal_group] & extend_vag4 or timers[signal_group]['VAG4'] > 0 and now - timers[signal_group]['VAG4'] >= \
                         timers[signal_group]['maximum']['VAG4']:
                     outputs[signal_group]['VAG4'] = False
                     outputs[signal_group]['GL'] = True
@@ -224,7 +224,7 @@ def open_tlc(step):
 
         # set other outputs
         for signal_group in appConfig['fasecycli']:
-            outputs[signal_group]['demand'] = demands[signal_group]
+            outputs[signal_group]['demand'] = requests[signal_group]
             outputs[signal_group]['sequence'] = sequence[signal_group]
 
             if timers[signal_group]['delay'] > 0:
@@ -255,7 +255,7 @@ def open_tlc(step):
             outputs[signal_group]['demand'] = False
             outputs[signal_group]['sequence'] = 0
             outputs[signal_group]['delay'] = 0
-            demands[signal_group] = False
+            requests[signal_group] = False
             sequence[signal_group] = 0
             timers[signal_group]['delay'] = 0
 
@@ -275,7 +275,7 @@ def open_tlc(step):
             outputs[signal_group]['demand'] = False
             outputs[signal_group]['sequence'] = 0
             outputs[signal_group]['delay'] = 0
-            demands[signal_group] = False
+            requests[signal_group] = False
             sequence[signal_group] = 0
             timers[signal_group]['delay'] = 0
 
@@ -295,6 +295,6 @@ def open_tlc(step):
             outputs[signal_group]['demand'] = False
             outputs[signal_group]['sequence'] = 0
             outputs[signal_group]['delay'] = 0
-            demands[signal_group] = False
+            requests[signal_group] = False
             sequence[signal_group] = 0
             timers[signal_group]['delay'] = 0

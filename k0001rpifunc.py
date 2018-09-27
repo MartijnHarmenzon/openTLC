@@ -2,7 +2,7 @@
 import wiringpi
 import yaml
 import json
-from k0001def import inputs, outputs, demands, sequence, timers, appConfig, rpiConfig
+from k0001def import inputs, outputs, requests, sequence, timers, appConfig, rpiConfig
 from k0001func import set_defaults
 
 
@@ -147,7 +147,7 @@ def finally_func():
         outputs[fc]['demand'] = False
         outputs[fc]['sequence'] = 0
         outputs[fc]['delay'] = 0
-        demands[fc] = False
+        requests[fc] = False
         sequence[fc] = 0
         timers[fc]['delay'] = 0
 

@@ -1,8 +1,8 @@
 # import libraries
 import operator
 import random
-from k0001def import appConfig, outputs, inputs, demands, conflicts, sequence, wachtgroen, timers, countData, \
-    detector_status, extend, BIT1, BIT2, BIT3, BIT4
+from k0001def import appConfig, outputs, inputs, requests, conflicts, sequence, wachtgroen, timers, countData, \
+    detector_status, extend, extend_vag1, extend_vag2, extend_vag3, extend_vag4
 
 if appConfig['automaat']['raspberry_pi']:
     from k0001def import rpiConfig
@@ -13,52 +13,65 @@ if appConfig['simulatie']['sumo']:
 
 #
 def initialise():
-    for fc in appConfig['fasecycli']:
-        outputs[fc] = {'WR': True, 
-                       'RVG': False, 
-                       'VG': False, 
-                       'VAG1': False, 
-                       'VAG2': False, 
-                       'WG': False, 
-                       'VAG3': False,
-                       'MVG': False, 
-                       'VAG4': False, 
-                       'GL': False, 
-                       'demand': False, 
-                       'sequence': 0}
-        demands[fc] = False
-        conflicts[fc] = {}
-        sequence[fc] = 0
-        wachtgroen[fc] = False
-        timers[fc] = {'R': 0,
-                      'G': 0,
-                      'VG': 0,
-                      'VAG1': 0,
-                      'VAG2': 0,
-                      'VAG3': 0,
-                      'VAG4': 0,
-                      'GL': 0,
-                      'delay': 0}
-        countData[fc] = 0
-        extend[fc] = False
-        timers[fc]['garantie'] = {'rood': appConfig['fasecycli'][fc]['tijden']['garantie']['rood'],
-                                  'groen': appConfig['fasecycli'][fc]['tijden']['garantie']['groen'],
-                                  'geel': appConfig['fasecycli'][fc]['tijden']['garantie']['geel']}
+    for signal_group in appConfig['fasecycli']:
+        outputs[signal_group] = {
+            'WR': True,
+            'RVG': False,
+            'VG': False,
+            'VAG1': False,
+            'VAG2': False,
+            'WG': False,
+            'VAG3': False,
+            'MVG': False,
+            'VAG4': False,
+            'GL': False,
+            'demand': False,
+            'sequence': 0
+        }
+        requests[signal_group] = False
+        conflicts[signal_group] = {}
+        sequence[signal_group] = 0
+        wachtgroen[signal_group] = False
+        timers[signal_group] = {
+            'R': 0,
+            'G': 0,
+            'VG': 0,
+            'VAG1': 0,
+            'VAG2': 0,
+            'VAG3': 0,
+            'VAG4': 0,
+            'GL': 0,
+            'delay': 0
+        }
+        countData[signal_group] = 0
+        extend[signal_group] = False
+        timers[signal_group]['garantie'] = {
+            'rood': appConfig['fasecycli'][signal_group]['tijden']['garantie']['rood'],
+            'groen': appConfig['fasecycli'][signal_group]['tijden']['garantie']['groen'],
+            'geel': appConfig['fasecycli'][signal_group]['tijden']['garantie']['geel']
+        }
 
         # stel eerst de garantie tijden in als basis tijden
-        timers[fc]['basis'] = {'vastgroen': appConfig['fasecycli'][fc]['tijden']['basis']['groen'],
-                               'geel': appConfig['fasecycli'][fc]['tijden']['basis']['geel']}
+        timers[signal_group]['basis'] = {
+            'vastgroen': appConfig['fasecycli'][signal_group]['tijden']['basis']['groen'],
+            'geel': appConfig['fasecycli'][signal_group]['tijden']['basis']['geel']
+        }
 
-        timers[fc]['maximum'] = {'VAG1': appConfig['fasecycli'][fc]['tijden']['maximum']['VAG1'],
-                                 'VAG2': appConfig['fasecycli'][fc]['tijden']['maximum']['VAG2'],
-                                 'VAG3': appConfig['fasecycli'][fc]['tijden']['maximum']['VAG3'],
-                                 'VAG4': appConfig['fasecycli'][fc]['tijden']['maximum']['VAG4']}
+        timers[signal_group]['maximum'] = {
+            'VAG1': appConfig['fasecycli'][signal_group]['tijden']['maximum']['VAG1'],
+            'VAG2': appConfig['fasecycli'][signal_group]['tijden']['maximum']['VAG2'],
+            'VAG3': appConfig['fasecycli'][signal_group]['tijden']['maximum']['VAG3'],
+            'VAG4': appConfig['fasecycli'][signal_group]['tijden']['maximum']['VAG4']
+        }
 
         # stel de basis tijden in als deze groter zijn dan de garantie tijden
-        if appConfig['fasecycli'][fc]['tijden']['garantie']['groen'] > timers[fc]['basis']['vastgroen']:
-            timers[fc]['basis']['vastgroen'] = appConfig['fasecycli'][fc]['tijden']['garantie']['groen']
-        if appConfig['fasecycli'][fc]['tijden']['garantie']['geel'] > timers[fc]['basis']['geel']:
-            timers[fc]['basis']['geel'] = appConfig['fasecycli'][fc]['tijden']['garantie']['geel']
+        if appConfig['fasecycli'][signal_group]['tijden']['garantie']['groen'] > \
+                timers[signal_group]['basis']['vastgroen']:
+            timers[signal_group]['basis']['vastgroen'] = \
+                appConfig['fasecycli'][signal_group]['tijden']['garantie']['groen']
+        if appConfig['fasecycli'][signal_group]['tijden']['garantie']['geel'] > \
+                timers[signal_group]['basis']['geel']:
+            timers[signal_group]['basis']['geel'] = appConfig['fasecycli'][signal_group]['tijden']['garantie']['geel']
             
     for fc1 in appConfig['conflicten']:
         for fc2 in appConfig['conflicten'][fc1]:
@@ -74,81 +87,79 @@ def initialise():
 
 
 #
-def detectietijden(d, detector_status, now):
-    # bezettijd
+def set_demand_timers(detector, status, now):
+    # occupancy time
     try:
-        if detector_status:
-            if timers[d]['bezettijd'] == 0:
-                timers[d]['bezettijd'] = now
+        if status:
+            if timers[detector]['bezettijd'] == 0:
+                timers[detector]['bezettijd'] = now
         else:
-            if timers[d]['bezettijd']:
-                timers[d]['bezettijd'] = 0
+            if timers[detector]['bezettijd']:
+                timers[detector]['bezettijd'] = 0
     except:
         pass
 
-    # hiaattijd
+    # gap time
     try:
-        if detector_status:
-            if timers[d]['hiaattijd']:
-                timers[d]['hiaattijd'] = 0
+        if status:
+            if timers[detector]['hiaattijd']:
+                timers[detector]['hiaattijd'] = 0
         else:
-            if timers[d]['hiaattijd'] == 0:
-                timers[d]['hiaattijd'] = now
+            if timers[detector]['hiaattijd'] == 0:
+                timers[detector]['hiaattijd'] = now
     except:
         pass
 
 
 #
-def request_green(fc, d, detector_status, now):
+def request_green(signal_group, detector, status, now):
     try:
-        aanvraagfunctie = appConfig['detectie'][d]['parameters']['aanvraag']
-        type = appConfig['detectie'][d]['type']
-        bool = False
+        request_type = appConfig['detectie'][detector]['parameters']['aanvraag']
+        criteria = False
 
-        if not type == 'drukknop':
-            bezettijd = appConfig['detectie'][d]['tijden']['bezettijd']
-            bezettijdTimer = timers[d]['bezettijd']
-            if detector_status and now - bezettijdTimer >= bezettijd:
-                bool = True
+        if not appConfig['detectie'][detector]['type'] == 'drukknop':
+            if status and now - timers[detector]['bezettijd'] >= appConfig['detectie'][detector]['tijden']['bezettijd']:
+                criteria = True
             else:
-                bool = False
+                criteria = False
         else:
-            if detector_status:
-                bool = True
+            if status:
+                criteria = True
 
-        if bool:
-            if aanvraagfunctie == 1:
-                if outputs[fc]['WR'] and timers[fc]['R'] > 0 and now - timers[fc]['R'] >= timers[fc]['garantie']['rood']:
-                    demands[fc] = True
+        if criteria:
+            if request_type == 1:
+                if outputs[signal_group]['WR'] and timers[signal_group]['R'] > 0 and \
+                        now - timers[signal_group]['R'] >= timers[signal_group]['garantie']['rood']:
+                    requests[signal_group] = True
                     # print(fc, d, demands[fc], detector_status[d], 1)
-            elif aanvraagfunctie == 2:
-                if outputs[fc]['WR']:
-                    demands[fc] = True
+            elif request_type == 2:
+                if outputs[signal_group]['WR']:
+                    requests[signal_group] = True
                     # print(fc, d, demands[fc], detector_status[d], 2)
-            elif aanvraagfunctie == 3:
-                if not outputs[fc]['VG']:
-                    demands[fc] = True
+            elif request_type == 3:
+                if not outputs[signal_group]['VG']:
+                    requests[signal_group] = True
                     # print(fc, d, demands[fc], detector_status[d], 3)
     except:
         pass
 
 
 #
-def extend_green(fc, d, detector_status, now):
+def extend_green(signal_group, detector, status, now):
     try:
-        hiaattijd = appConfig['detectie'][d]['tijden']['hiaattijd']
-        verlengfunctie = appConfig['detectie'][d]['parameters']['verleng']
-        hiaattijdTimer = timers[d]['hiaattijd']
+        gap_time = appConfig['detectie'][detector]['tijden']['hiaattijd']
+        extend_type = appConfig['detectie'][detector]['parameters']['verleng']
+        gap_time_timer = timers[detector]['hiaattijd']
 
-        if detector_status and hiaattijdTimer == 0 or now - hiaattijdTimer < hiaattijd:
-            if verlengfunctie & BIT1:
-                extend[fc] |= BIT1
-            if verlengfunctie & BIT2:
-                extend[fc] |= BIT2
-            if verlengfunctie & BIT3:
-                extend[fc] |= BIT3
-            if verlengfunctie & BIT4:
-                extend[fc] |= BIT4
+        if status and gap_time_timer == 0 or (now - gap_time_timer) < gap_time:
+            if extend_type & extend_vag1:
+                extend[signal_group] |= extend_vag1
+            if extend_type & extend_vag2:
+                extend[signal_group] |= extend_vag2
+            if extend_type & extend_vag3:
+                extend[signal_group] |= extend_vag3
+            if extend_type & extend_vag4:
+                extend[signal_group] |= extend_vag4
     except:
         pass
 
@@ -165,29 +176,31 @@ def set_remain_green():
 
 #
 def set_defaults():
-    for fc in appConfig['fasecycli']:
-        demands[fc] = False
-        # conflicts[fc] = {}
-        # sequence[fc] = 0
-        wachtgroen[fc] = False
-        # timers[fc] = {'R': 0,
-                      # 'G': 0,
-                      # 'VG': 0,
-                      # 'VAG1': 0,
-                      # 'VAG2': 0,
-                      # 'WG': 0,
-                      # 'VAG3': 0,
-                      # 'MG': 0,
-                      # 'VAG4': 0,
-                      # 'GL': 0,
-                      # 'delay': 0}
-        # countData[fc] = 0
-        extend[fc] = 0
+    for signal_group in appConfig['fasecycli']:
+        requests[signal_group] = False
+        # conflicts[signal_group] = {}
+        # sequence[signal_group] = 0
+        wachtgroen[signal_group] = False
+        # timers[signal_group] = {
+        #     'R': 0,
+        #     'G': 0,
+        #     'VG': 0,
+        #     'VAG1': 0,
+        #     'VAG2': 0,
+        #     'WG': 0,
+        #     'VAG3': 0,
+        #     'MG': 0,
+        #     'VAG4': 0,
+        #     'GL': 0,
+        #     'delay': 0
+        # }
+        # countData[signal_group] = 0
+        extend[signal_group] = 0
 
-    for fc1 in appConfig['conflicten']:
-        for fc2 in appConfig['conflicten'][fc1]:
-            # print(fc1, fc2, conflicts[fc1])
-            conflicts[fc1][fc2] = False
+    for signal_group_1 in appConfig['conflicten']:
+        for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+            # print(signal_group_1, signal_group_2, conflicts[signal_group_1])
+            conflicts[signal_group_1][signal_group_2] = False
 
     # for d in appConfig['detectie']:
         # inputs[d] = False
@@ -198,115 +211,117 @@ def set_defaults():
 
 #
 def set_cyclische_aanvragen():
-    for fc in appConfig['fasecycli']:
-        if appConfig['fasecycli'][fc]['schakelaars']['cyclisch_aanvragen']:
-            demands[fc] = True
+    for signal_group in appConfig['fasecycli']:
+        if appConfig['fasecycli'][signal_group]['schakelaars']['cyclisch_aanvragen']:
+            requests[signal_group] = True
 
 
 #
 def conflict_manager():
-    for fc1 in appConfig['conflicten']:
-        for fc2 in appConfig['conflicten'][fc1]:
-            if outputs[fc1]['WR'] or outputs[fc1]['RVG']:
-                if not outputs[fc2]['WR']:
-                    conflicts[fc1][fc2] = True
+    for signal_group_1 in appConfig['conflicten']:
+        for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+            if outputs[signal_group_1]['WR'] or outputs[signal_group_1]['RVG']:
+                if not outputs[signal_group_2]['WR']:
+                    conflicts[signal_group_1][signal_group_2] = True
 
 
 #
-def conflict_status(fc1):
+def conflict_status(signal_group_1):
     state = False
-    for fc2 in appConfig['conflicten'][fc1]:
-        if outputs[fc1]['WR'] or outputs[fc1]['RVG']:
-            if not (outputs[fc2]['WR'] or outputs[fc2]['RVG']):
+    for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+        if outputs[signal_group_1]['WR'] or outputs[signal_group_1]['RVG']:
+            if not (outputs[signal_group_2]['WR'] or outputs[signal_group_2]['RVG']):
                 state = True
                 break
         else:
-            if outputs[fc2]['RVG']:
+            if outputs[signal_group_2]['RVG']:
                 state = True
                 break
     return state
 
 
 #
-def conflict_demand(fc1):
+def conflict_demand(signal_group_1):
     state = False
-    for fc2 in appConfig['conflicten'][fc1]:
-        if outputs[fc2]['RVG']:
+    for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+        if outputs[signal_group_2]['RVG']:
             state = True
             break
     return state
 
 
 #
-def conflict_demand_list(fc1):
+def conflict_demand_list(signal_group_1):
     list = []
 
-    for fc2 in appConfig['conflicten'][fc1]:
-        if outputs[fc2]['RVG']:
-            list.append(fc2)
+    for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+        if outputs[signal_group_2]['RVG']:
+            list.append(signal_group_2)
     return list
 
 
 #
-def conflict_green(list):
+def conflict_green(signal_groups):
     state = False
-    for fc1 in list:
-        for fc2 in appConfig['conflicten'][fc1]:
-            if not (outputs[fc2]['GL'] or outputs[fc2]['WR'] or outputs[fc2]['RVG'] or outputs[fc2]['MVG']):
+    for signal_group_1 in signal_groups:
+        for signal_group_2 in appConfig['conflicten'][signal_group_1]:
+            if not (outputs[signal_group_2]['GL'] or outputs[signal_group_2]['WR'] or
+                    outputs[signal_group_2]['RVG'] or outputs[signal_group_2]['MVG']):
                 state = True
                 break
     return state
 
 
 #
-def non_conflicts_mvg(fc1):
+def non_conflicts_mvg(signal_group_1):
     state = False
 
-    list = []
-    for fc in appConfig['fasecycli']:
-        list.append(fc)
+    non_conflicts_list = []
+    for signal_group in appConfig['fasecycli']:
+        non_conflicts_list.append(signal_group)
 
-    list.remove(fc1)
+    non_conflicts_list.remove(signal_group_1)
 
-    for fc in conflicts[fc1]:
+    for signal_group in conflicts[signal_group_1]:
         try:
-            list.remove(fc)
+            non_conflicts_list.remove(signal_group)
         except:
             pass
 
-    for fc2 in list:
-        if outputs[fc2]['MVG']:
+    for signal_group_2 in non_conflicts_list:
+        if outputs[signal_group_2]['MVG']:
             state = True
 
     return state
 
 
 #
-def non_conflicts(fc1):
-    list = []
-    for fc in appConfig['fasecycli']:
-        list.append(fc)
+def non_conflicts(signal_groups):
+    non_conflicts_list = []
 
-    list.remove(fc1)
+    for signal_group in appConfig['fasecycli']:
+        non_conflicts_list.append(signal_group)
 
-    for fc in conflicts[fc1]:
-        list.remove(fc)
+    non_conflicts_list.remove(signal_groups)
 
-    return list
+    for signal_group in conflicts[signal_groups]:
+        non_conflicts_list.remove(signal_group)
+
+    return non_conflicts_list
 
 
 #
-def non_green(fc1):
+def non_green(signal_group_1):
     state = False
+    non_green_list = []
 
-    list = []
-    for fc in appConfig['fasecycli']:
-        list.append(fc)
+    for signal_group in appConfig['fasecycli']:
+        non_green_list.append(signal_group)
 
-    list.remove(fc1)
+    non_green_list.remove(signal_group_1)
 
-    for fc2 in list:
-        if not (outputs[fc2]['WR'] or outputs[fc2]['RVG']):
+    for signal_group_2 in non_green_list:
+        if not (outputs[signal_group_2]['WR'] or outputs[signal_group_2]['RVG']):
             state = True
             break
 
@@ -314,19 +329,19 @@ def non_green(fc1):
 
 
 #
-def meeverlengen(fc1):
+def meeverlengen(signal_group):
     state = True
 
-    if outputs[fc1]['MVG']:
-        if conflict_demand(fc1) and not conflict_green(conflict_demand_list(fc1)):
+    if outputs[signal_group]['MVG']:
+        if conflict_demand(signal_group) and not conflict_green(conflict_demand_list(signal_group)):
             state = False
-        if not appConfig['fasecycli'][fc1]['schakelaars']['meeverlengen']:
+        if not appConfig['fasecycli'][signal_group]['schakelaars']['meeverlengen']:
             state = False
 
-    if non_conflicts_mvg(fc1):
+    if non_conflicts_mvg(signal_group):
         state = False
 
-    if not non_green(fc1):
+    if not non_green(signal_group):
         state = False
 
     return state
@@ -334,11 +349,12 @@ def meeverlengen(fc1):
 
 #
 def set_meeaanvragen():
-    for fc1 in appConfig['fasecycli']:
-        if 'meeaanvragen' in appConfig['fasecycli'][fc1]['schakelaars']:
-            for fc2 in appConfig['fasecycli'][fc1]['schakelaars']['meeaanvragen']:
-                if appConfig['fasecycli'][fc1]['schakelaars']['meeaanvragen'][fc2] and outputs[fc2]['RVG']:
-                    demands[fc1] = True
+    for signal_group_1 in appConfig['fasecycli']:
+        if 'meeaanvragen' in appConfig['fasecycli'][signal_group_1]['schakelaars']:
+            for signal_group_2 in appConfig['fasecycli'][signal_group_1]['schakelaars']['meeaanvragen']:
+                if appConfig['fasecycli'][signal_group_1]['schakelaars']['meeaanvragen'][signal_group_2] and \
+                        outputs[signal_group_2]['RVG']:
+                    requests[signal_group_1] = True
 
 
 #
@@ -360,62 +376,63 @@ def sequence_evaluator(now):
             sequence[sorted_sequence[i + 1][0]] -= 1
             sorted_sequence = sorted(sequence.items(), key=operator.itemgetter(1))
 
-    for fc1 in appConfig['fasecycli']:
-        if sequence[fc1] == 0:
-            if demands[fc1] and outputs[fc1]['WR']:
-                sequence[fc1] = value_max_sequence + 1
+    for signal_group_1 in appConfig['fasecycli']:
+        if sequence[signal_group_1] == 0:
+            if requests[signal_group_1] and outputs[signal_group_1]['WR']:
+                sequence[signal_group_1] = value_max_sequence + 1
 
-                list = []
-                for fc2 in appConfig['fasecycli']:
-                    if demands[fc2] and sequence[fc2] == 0:
-                        list.append(fc2)
+                list1 = []
+                for signal_group_2 in appConfig['fasecycli']:
+                    if requests[signal_group_2] and sequence[signal_group_2] == 0:
+                        list1.append(signal_group_2)
 
-                for fc3 in conflicts[fc1]:
+                for signal_group_3 in conflicts[signal_group_1]:
                     try:
-                        list.remove(fc3)
+                        list1.remove(signal_group_3)
                     except:
                         pass
 
-                list2 = list
-                for fc4 in list:
-                    for fc5 in conflicts[fc4]:
-                        if demands[fc5] and sequence[fc5] == 0:
+                list2 = list1
+                for signal_group_4 in list1:
+                    for signal_group_5 in conflicts[signal_group_4]:
+                        if requests[signal_group_5] and sequence[signal_group_5] == 0:
                             try:
-                                list2.remove(fc5)
+                                list2.remove(signal_group_5)
                             except:
                                 pass
 
-                for fc6 in list2:
-                    sequence[fc6] = value_max_sequence + 1
+                for signal_group_6 in list2:
+                    sequence[signal_group_6] = value_max_sequence + 1
 
                 value_max_sequence += 1
 
-    for fc1 in appConfig['fasecycli']:
-        bool = False
+    for signal_group_1 in appConfig['fasecycli']:
+        criteria = False
 
-        if timers[fc1]['VG'] > 0 and now - timers[fc1]['VG'] < timers[fc1]['garantie']['groen']:
-            list = non_conflicts(fc1)
+        if timers[signal_group_1]['VG'] > 0 and now - timers[signal_group_1]['VG'] < timers[signal_group_1]['garantie']['groen']:
+            list1 = non_conflicts(signal_group_1)
 
-            for fc2 in list:
+            for signal_group_2 in list1:
                 list2 = []
-                for fc3 in conflicts[fc2]:
-                    list2.append(fc3)
-                    if now - timers[fc3]['delay'] > 900:
-                        bool = True
+                for signal_group_3 in conflicts[signal_group_2]:
+                    list2.append(signal_group_3)
+                    if now - timers[signal_group_3]['delay'] > 900:
+                        criteria = True
 
-            for fc4 in list:
-                if sequence[fc4] >= 1 and appConfig['fasecycli'][fc4]['modaliteit'] == 'motorvoertuig' and not bool: # and not conflictGreen(list2)
-                    sequence[fc4] = 1
+            for signal_group_4 in list1:
+                if sequence[signal_group_4] >= 1 and appConfig['fasecycli'][signal_group_4]['modaliteit'] == 'motorvoertuig' and not criteria:
+                    # and not conflictGreen(list2)
+                    sequence[signal_group_4] = 1
 
 
 #
 def delay_manager(now):
-    for fc in appConfig['fasecycli']:
-        if outputs[fc]['WR'] or outputs[fc]['RVG']:
-            if demands[fc] and timers[fc]['delay'] == 0:
-                timers[fc]['delay'] = now
+    for signal_group in appConfig['fasecycli']:
+        if outputs[signal_group]['WR'] or outputs[signal_group]['RVG']:
+            if requests[signal_group] and timers[signal_group]['delay'] == 0:
+                timers[signal_group]['delay'] = now
         else:
-            timers[fc]['delay'] = 0
+            timers[signal_group]['delay'] = 0
 
 
 #

@@ -5,7 +5,7 @@ import yaml
 # define dictionaries
 outputs = {}
 inputs = {}
-demands = {}
+requests = {}
 conflicts = {}
 sequence = {}
 wachtgroen = {}
@@ -27,7 +27,7 @@ if appConfig['simulatie']['sumo']:
         sumoConfig = yaml.load(f)
 
 # define BITS
-BIT1 = 0x01
-BIT2 = 0x02
-BIT3 = 0x04
-BIT4 = 0x08
+extend_vag1 = 0x01
+extend_vag2 = 0x02
+extend_vag3 = 0x04
+extend_vag4 = 0x08
