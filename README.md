@@ -10,7 +10,6 @@ We use [Python 3](https://www.python.org/) as our programming language of choice
 various configuration files and [JSON](http://www.json.org/) for the APIs.
 
 ## Installation guide 
-### Option 1 - using default Python 3:
 1. Install Python 3
 2. Install PyCharm
 3. Open PyCharm
@@ -21,11 +20,3 @@ various configuration files and [JSON](http://www.json.org/) for the APIs.
    * double click on ‘pip’ -> specify version (most recent one) -> install package
 7. Install the ‘PyYAML’ package:
    * click on install -> search for ‘PyYAML’ - > install package
-
-### Option 2 - using Anaconda Python 3:
-1. Install Anaconda Python 3
-2. Install PyCharm
-3. Open PyCharm
-4. Open the ‘openTLC’ project
-5. Make the Anaconda Python 3 environment the project interpreter:
-   * file -> settings -> project -> project interpreter
