@@ -157,7 +157,7 @@ def verlengen(fc, d, detector_status, now):
 def set_wachtgroen():
     for fc in appConfig['fasecycli']:
         try:
-            if appConfig['fasecycli'][fc]['schakelaars']['wachtgroen'] and not conflictStatus(fc):
+            if appConfig['fasecycli'][fc]['schakelaars']['wachtgroen'] and not conflict_status(fc):
                 wachtgroen[fc] = True
         except:
             pass
@@ -213,7 +213,7 @@ def set_conflicts():
 
 
 #
-def conflictStatus(fc1):
+def conflict_status(fc1):
     state = False
     for fc2 in appConfig['conflicten'][fc1]:
         if outputs[fc1]['WR'] or outputs[fc1]['RVG']:
@@ -228,7 +228,7 @@ def conflictStatus(fc1):
 
 
 #
-def conflictDemand(fc1):
+def conflict_demand(fc1):
     state = False
     for fc2 in appConfig['conflicten'][fc1]:
         if outputs[fc2]['RVG']:
@@ -238,7 +238,7 @@ def conflictDemand(fc1):
 
 
 #
-def conflictDemandList(fc1):
+def conflict_demand_list(fc1):
     list = []
 
     for fc2 in appConfig['conflicten'][fc1]:
@@ -248,7 +248,7 @@ def conflictDemandList(fc1):
 
 
 #
-def conflictGreen(list):
+def conflict_green(list):
     state = False
     for fc1 in list:
         for fc2 in appConfig['conflicten'][fc1]:
@@ -259,7 +259,7 @@ def conflictGreen(list):
 
 
 #
-def nonConflictsMVG(fc1):
+def non_conflicts_mvg(fc1):
     state = False
 
     list = []
@@ -282,7 +282,7 @@ def nonConflictsMVG(fc1):
 
 
 #
-def nonConflicts(fc1):
+def non_conflicts(fc1):
     list = []
     for fc in appConfig['fasecycli']:
         list.append(fc)
@@ -296,7 +296,7 @@ def nonConflicts(fc1):
 
 
 #
-def nonGreen(fc1):
+def non_green(fc1):
     state = False
 
     list = []
@@ -318,15 +318,15 @@ def meeverlengen(fc1):
     state = True
 
     if outputs[fc1]['MVG']:
-        if conflictDemand(fc1) and not conflictGreen(conflictDemandList(fc1)):
+        if conflict_demand(fc1) and not conflict_green(conflict_demand_list(fc1)):
             state = False
         if not appConfig['fasecycli'][fc1]['schakelaars']['meeverlengen']:
             state = False
 
-    if nonConflictsMVG(fc1):
+    if non_conflicts_mvg(fc1):
         state = False
 
-    if not nonGreen(fc1):
+    if not non_green(fc1):
         state = False
 
     return state
@@ -394,7 +394,7 @@ def set_sequence(now):
         bool = False
 
         if timers[fc1]['VG'] > 0 and now - timers[fc1]['VG'] < timers[fc1]['garantie']['groen']:
-            list = nonConflicts(fc1)
+            list = non_conflicts(fc1)
 
             for fc2 in list:
                 list2 = []
@@ -409,7 +409,7 @@ def set_sequence(now):
 
 
 #
-def setDelay(now):
+def set_delay(now):
     for fc in appConfig['fasecycli']:
         if outputs[fc]['WR'] or outputs[fc]['RVG']:
             if demands[fc] and timers[fc]['delay'] == 0:
@@ -419,7 +419,7 @@ def setDelay(now):
 
 
 #
-def setCountData():
+def set_count_data():
     countData['fc01'] = random.randrange(0, 101, 2)
     countData['fc02'] = random.randrange(750, 1001, 2)
     countData['fc03'] = random.randrange(0, 101, 2)

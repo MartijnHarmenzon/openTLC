@@ -5,7 +5,7 @@ from k0001def import appConfig, outputs, inputs, demands, sequence, wachtgroen, 
     extend, BIT1, BIT2, BIT3, BIT4
 
 from k0001func import initialise, reset, set_conflicts, set_wachtgroen, detectietijden, aanvragen, \
-    set_sequence, setDelay, verlengen, conflictStatus, meeverlengen
+    set_sequence, set_delay, verlengen, conflict_status, meeverlengen
 
 if appConfig['automaat']['raspberry_pi']:
     from k0001def import rpiConfig
@@ -88,7 +88,7 @@ def openTLC(step, amberState):
         # set_meeaanvragen()
         # set_cyclische_aanvragen()
         set_sequence(now)
-        setDelay(now)
+        set_delay(now)
 
         verlengen('fc01', 'd011', inputs['d011'], now)
         verlengen('fc01', 'd012', inputs['d012'], now)
@@ -127,7 +127,7 @@ def openTLC(step, amberState):
                     outputs[fc]['RVG'] = True
 
             if outputs[fc]['RVG']:
-                if not conflictStatus(fc):
+                if not conflict_status(fc):
                     outputs[fc]['RVG'] = False
                     outputs[fc]['VG'] = True
 

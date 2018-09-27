@@ -1,12 +1,13 @@
-#
-import wiringpi, yaml, json
-
-#
+# import libraries
+import wiringpi
+import yaml
+import json
 from k0001def import inputs, outputs, demands, sequence, timers, appConfig, rpiConfig
 from k0001func import reset
 
+
 #
-def startFunc():
+def start_func():
     print('TLC started...')
 
     # initialise wiringpi
@@ -45,8 +46,9 @@ def startFunc():
                 wiringpi.pinMode(rpiConfig['detectie'][d], 0)
                 wiringpi.digitalWrite(rpiConfig['detectie'][d], 0)
 
+
 #
-def setGuiInputs():
+def set_gui_inputs():
     try:
         with open('data/data_from_gui.yaml', 'r') as f:
             guiData = yaml.load(f)
@@ -60,8 +62,9 @@ def setGuiInputs():
         for i in guiData['is']:
             inputs[i] = guiData['is'][i]
 
+
 #
-def setState():
+def set_state():
     for fc in appConfig['fasecycli']:
         if outputs[fc]['WR'] or outputs[fc]['RVG']:
             # Turn off the yellow LED
@@ -123,8 +126,9 @@ def setState():
     except:
         pass
 
+
 #
-def finallyFunc():
+def finally_func():
     #
     reset()
 
