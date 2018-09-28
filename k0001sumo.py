@@ -13,8 +13,12 @@ import optparse
 import os
 import subprocess
 import sys
-import time
-import random
+# import time
+# import random
+
+
+# the port used for communicating with your sumo instance
+traci_port = 8873
 
 
 # we need to import python modules from the $SUMO_HOME/tools directory
@@ -33,11 +37,8 @@ except ImportError:
 
 #
 def run():
-    # the port used for communicating with your sumo instance
-    PORT = 8873
-
     #
-    traci.init(PORT)
+    traci.init(traci_port)
 
     #
     step = 0
@@ -75,33 +76,27 @@ def run():
 
 #
 def get_options():
-    optParser = optparse.OptionParser()
-    optParser.add_option("--nogui", action="store_true",
-                         default=False, help="run the commandline version of sumo")
-    options, args = optParser.parse_args()
+    opt_parser = optparse.OptionParser()
+    opt_parser.add_option("--nogui", action="store_true", default=False, help="run the commandline version of sumo")
+    options, args = opt_parser.parse_args()
     return options
 
 
 # this is the main entry point of this script
 if __name__ == "__main__":
-    options = get_options()
-
-    # this script has been called from the command line. It will start sumo as a
-    # server, then connect and run
-    if options.nogui:
-        sumoBinary = checkBinary('sumo')
+    # this script has been called from the command line. It will start sumo as a server, then connect and run
+    if get_options().nogui:
+        sumo_binary = checkBinary('sumo')
     else:
-        sumoBinary = checkBinary('sumo-gui')
+        sumo_binary = checkBinary('sumo-gui')
 
-    # first, generate the route file for this simulation
-    # generate_routefile()
+    # first, generate the route file for this simulation generate_routefile()
 
-    # this is the normal way of using traci. sumo is started as a
-    # subprocess and then the python script connects and runs
-    # sumoProcess = subprocess.Popen([sumoBinary, "-c", "data/MAP_K0001.sumo.cfg", "--tripinfo-output",
-    #                                 "tripinfo.xml", "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
+    # this is the normal way of using traci. sumo is started as a subprocess and then the python script connects and
+    # runs sumoProcess = subprocess.Popen([sumoBinary, "-c", "data/MAP_K0001.sumo.cfg", "--tripinfo-output",
+    # "tripinfo.xml", "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
 
-    sumoProcess = subprocess.Popen([sumoBinary, "-c", "SUMO/k0001.sumocfg", "--remote-port", str(PORT)],
-                                   stdout=sys.stdout, stderr=sys.stderr)
+    sumo_process = subprocess.Popen([sumo_binary, "-c", "SUMO/k0001.sumocfg", "--remote-port", str(traci_port)],
+                                    stdout=sys.stdout, stderr=sys.stderr)
     run()
-    sumoProcess.wait()
+    sumo_process.wait()

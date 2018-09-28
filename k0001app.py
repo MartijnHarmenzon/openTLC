@@ -5,7 +5,7 @@ from k0001def import appConfig, outputs, inputs, requests, sequence, wachtgroen,
     extend_vag1, extend_vag2, extend_vag3, extend_vag4
 
 from k0001func import set_defaults, conflict_manager, set_remain_green, set_demand_timers, request_green, \
-    conflictsequence_evaluator, delay_manager, extend_green, conflict_status, meeverlengen
+    sequence_evaluator, delay_manager, extend_green, conflict_status, meeverlengen
 
 # if appConfig['automaat']['raspberry_pi']:
 #     from k0001def import rpiConfig

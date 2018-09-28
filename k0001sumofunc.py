@@ -11,7 +11,7 @@ def set_sumo_inputs():
               'd082', 'd091', 'd092', 'd101', 'd102', 'd111', 'd112', 'd211', 'd241', 'd251', 'd271',
               'd311', 'd312', 'd321', 'd322', 'd331', 'd332', 'd351', 'd352', 'd361', 'd362', 'd371', 'd372']:
         try:
-            if traci.areal.getLastStepOccupancy(d) > 0:
+            if traci.lanearea.getLastStepOccupancy(d) > 0:
                 inputs[d] = True
             else:
                 inputs[d] = False
@@ -22,7 +22,7 @@ def set_sumo_inputs():
 #
 def set_state():
     #
-    state_old = list(traci.trafficlights.getRedYellowGreenState("K0001"))
+    state_old = list(traci.trafficlight.getRedYellowGreenState("K0001"))
 
     #
     for fc in appConfig['fasecycli']:
@@ -52,4 +52,4 @@ def set_state():
     state_new = "".join(state_old)
 
     #
-    traci.trafficlights.setRedYellowGreenState("K0001", state_new)
+    traci.trafficlight.setRedYellowGreenState("K0001", state_new)
